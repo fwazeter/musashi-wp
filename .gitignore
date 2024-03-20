@@ -32,3 +32,6 @@ composer.dev.lock
 # Setup Scripts
 /scripts/install.sh
 /scripts/composer.sh
+
+
+/.idea

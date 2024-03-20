@@ -5,11 +5,11 @@ if [[ ! $1 ]]; then
     echo "--------------------------------------------------------------------"
     exit 1;
 elif [ "local" = $1 ]; then
-  MULTITENANT_PATH=/path_to_multitenant
+  MULTITENANT_PATH=/usr/local/lsws/web/musashi-wp
 elif [ "dev" = $1 ]; then
-  MULTITENANT_PATH=/path_to_multitenant
+  MULTITENANT_PATH=/usr/local/lsws/web/musashi-wp
 elif [ "prod" = $1 ]; then
-  MULTITENANT_PATH=/path_to_multitenant
+  MULTITENANT_PATH=/usr/local/lsws/web/musashi-wp
 fi
 
 # Set current path
