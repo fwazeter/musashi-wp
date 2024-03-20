@@ -82,12 +82,12 @@ define('WP_DEBUG_DISPLAY', $wp_debug_display);
  * @version 1.0
  */
 $wp_cache      = true;
-$disable_redis = false;
+//$disable_redis = false;
 
 // Disable cache for dev environments
 if ('dev' === getenv('ENV_CURRENT_ENV')) {
     $wp_cache      = false;
-    $disable_redis = true;
+    //$disable_redis = true;
 }
 
 define('WP_CACHE', $wp_cache);
@@ -96,9 +96,10 @@ if (! defined('WP_CACHE_KEY_SALT')) {
     define('WP_CACHE_KEY_SALT', $md5_cache_salt_key);
 }
 
-define('WP_REDIS_DISABLED', $disable_redis);
+// Possibly removeable or comment-outable.
+/*define('WP_REDIS_DISABLED', $disable_redis);
 define('WP_REDIS_SELECTIVE_FLUSH', true);
-define('WP_REDIS_MAXTTL', 300);
+define('WP_REDIS_MAXTTL', 300);*/
 
 /**
  * Configure Security Settings

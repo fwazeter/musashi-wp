@@ -69,6 +69,11 @@ fi
 # Make site directory
 mkdir .$FOLDER_PATH/wp-content
 mkdir .$FOLDER_PATH/wp-content/uploads
+# Make logfile directory.
+mkdir .$FOLDER_PATH/logs
+# Make cgi-bin and fcgi-bin directories
+mkdir .$FOLDER_PATH/cgi-bin
+mkdir .$FOLDER_PATH/fcgi-bin
 
 # Create htaccess symlinks
 if [ "y" = $USE_MULTISITE ]; then
@@ -80,12 +85,21 @@ fi
 # Create symlinks
 ln -s $MULTITENANT_PATH/config/wp-cli.yml .$FOLDER_PATH/wp-cli.yml
 ln -s $MULTITENANT_PATH/app/stable .$FOLDER_PATH/wp
-ln -s $MULTITENANT_PATH/assets/drop-ins/advanced-cache.php .$FOLDER_PATH/wp-content/advanced-cache.php
-ln -s $MULTITENANT_PATH/assets/drop-ins/object-cache.php .$FOLDER_PATH/wp-content/object-cache.php
+#ln -s $MULTITENANT_PATH/assets/drop-ins/advanced-cache.php .$FOLDER_PATH/wp-content/advanced-cache.php
+#ln -s $MULTITENANT_PATH/assets/drop-ins/object-cache.php .$FOLDER_PATH/wp-content/object-cache.php
 ln -s $MULTITENANT_PATH/assets/mu-plugins .$FOLDER_PATH/wp-content/mu-plugins
 ln -s $MULTITENANT_PATH/assets/plugins .$FOLDER_PATH/wp-content/plugins
 ln -s $MULTITENANT_PATH/assets/themes .$FOLDER_PATH/wp-content/themes
 ln -s $MULTITENANT_PATH/config/wp-env.php .$FOLDER_PATH/wp-env.php
+
+# Now, set permissions and ownership for wp-content This can be made better with .env later.
+echo "Setting permissions for wp-content..."
+
+sudo chown -R nobody:nogroup .$FOLDER_PATH/wp-content/
+find .$FOLDER_PATH/wp-content/ -type d -exec chmod 750 {} \;
+find .$FOLDER_PATH/wp-content/ -type f -exec chmod 640 {} \;
+
+echo "Permissions set."
 
 # Copy install files
 cp $MULTITENANT_PATH/_install-files/index.php $PUBLIC_PATH$FOLDER_PATH

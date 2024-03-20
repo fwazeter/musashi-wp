@@ -4,4 +4,4 @@ cp _install-files/_wp-silencer.php assets/plugins/index.php
 cp _install-files/_wp-silencer.php assets/themes/index.php
 
 ## Litespeed Cache attempt.
-cp wp-content/mu-plugins/litespeed-cache/litespeed-cache.php assets/drop-ins
+cp assets/mu-plugins/litespeed-cache/litespeed-cache.php assets/drop-ins
