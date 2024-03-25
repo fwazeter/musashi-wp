@@ -1,6 +1,5 @@
 # Composer files
 auth.json
-composer.json
 composer.lock
 composer.dev.json
 composer.dev.lock
@@ -35,3 +34,5 @@ composer.dev.lock
 
 
 /.idea
+
+/vendor/

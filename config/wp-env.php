@@ -15,7 +15,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
  * @package WordPress Config
  * @version 1.0
  */
-$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv = Dotenv\Dotenv::creatImmutable(__DIR__);
 $dotenv->load();
 $dotenv->required(
     [

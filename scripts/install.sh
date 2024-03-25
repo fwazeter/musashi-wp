@@ -33,7 +33,7 @@ echo -e "What's your database name? "
 read -r DATABASE_NAME
 if [[ ! $DATABASE_NAME ]]; then
     echo "--------------------------------------------------------------------"
-    echo "You must specify your databse name";
+    echo "You must specify your database name";
     echo "--------------------------------------------------------------------"
     exit 1;
 fi

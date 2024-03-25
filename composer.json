@@ -1,38 +1,18 @@
 {
   "name": "fwazeter/musashi-wp",
   "description": "Composer setup for a WordPress Multi Tenant environment",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
     "php": "^8.1",
-    "composer/installers": "1.*",
-    "johnpbloch/wordpress": "*",
-    "vlucas/phpdotenv": "^5.*",
-    "wpackagist-theme/twentytwentyfour": "@stable",
-    "wpackagist-plugin/litespeed-cache": "*",
-    "wpackagist-plugin/debug-bar": "*",
-    "wpackagist-plugin/query-monitor": "*"
+    "league/container": "^4.2.1",
+    "vlucas/phpdotenv": "5.*",
+    "wp-cli/wp-cli": "^2.10"
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
+  "autoload": {
+    "psr-4": {
+      "Musashi\\": "src/"
     }
-  ],
-  "extra": {
-    "wordpress-install-dir": "app/stable",
-    "installer-paths": {
-      "assets/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin",
-        "wpackagist-plugin/litespeed-cache"
-      ],
-      "assets/plugins/{$name}/": ["type:wordpress-plugin"],
-      "assets/themes/{$name}/": ["type:wordpress-theme"]
-    }
-  },
-  "scripts": {
-    "post-install-cmd": "bash scripts/composer.sh",
-    "post-update-cmd": "bash scripts/composer.sh"
   }
 }

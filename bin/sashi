@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+// The code in this file is the entry point for the CLI application. It uses the container to get an instance of the Cli class and then calls the run method on that instance. The Cli class is responsible for parsing the command-line arguments and executing the appropriate command. It uses the UserManager class to create new system users, and it can be extended to handle other commands as well. The container is used to manage the dependencies between the different classes, making it easy to add new functionality to the CLI application.
+$container = require __DIR__ . '/../src/app.php';
+
+// Use the container to get an instance of Cli
+$cli = $container->get(Musashi\Core\Cli::class);
+$cli->run();
